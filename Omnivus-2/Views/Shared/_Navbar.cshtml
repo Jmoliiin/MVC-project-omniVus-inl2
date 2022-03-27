@@ -1,0 +1,54 @@
+﻿ 
+<!-- header -->
+<div class="header-grid">
+    <div id="branding">
+        <h1>OmniVus.</h1>
+        <p>IT Service & Technology</p>
+    </div>
+    <nav id="top-menu">
+        @if (SignInManager.IsSignedIn(User))
+        {
+            
+            <a asp-controller="Profile" asp-action="Index" asp-route-id="@User.FindFirst("UserId").Value">@await ProfileManager.DisplayNameAsync(User.FindFirst("UserId").Value) 
+                <br/>
+                <p>@await ProfileManager.DisplayRoleAsync(User.FindFirst("UserId").Value)</p>
+                </a>
+                
+            
+            <div class="social">
+                @if(User.IsInRole("admin"))
+                {
+                   <a asp-controller="Admin" asp-action="Users">Users</a> 
+                }
+            
+            <a asp-controller="Authentication" asp-action="SignOut" >Sign out</a>
+        </div>
+
+        }
+        else
+        {
+        <a href="mailto:info@domain.com">info@domain.com</a>
+        <div class="social">
+            <a href="https://facebook.com">facebook</a>
+            <a href="https://twitter.com">twitter</a>
+            <a href="https://linkedin.com">linkedin</a>
+            <a href="https://youtube.com">youtube</a>
+        </div>
+        }
+        
+    </nav>
+    <nav id="main-menu">
+        <div class="menu-items">
+            
+            <a asp-controller="Home" asp-action="Index">Home</a>
+            <a asp-controller="Home" asp-action="Services">Services</a>
+            <a asp-controller="Home" asp-action="Contact">Contact</a>
+        </div>
+        @if (!SignInManager.IsSignedIn(User))
+        {
+            <a asp-controller="Authentication" asp-action="SignUp" class="btn btn-main">Sign Up</a>
+        }  
+    </nav>
+</div>
+
+

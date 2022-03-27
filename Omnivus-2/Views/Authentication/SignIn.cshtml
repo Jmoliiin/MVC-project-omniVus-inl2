@@ -1,0 +1,60 @@
+﻿@using Omnivus_2.Models.Forms
+@model SignInForm
+
+@{
+    ViewData["Title"] = "SignIn";
+}
+
+
+<div class="bg-blue-gradient">
+    <div class="container">
+        <partial name="_Navbar" />
+    </div>
+</div>
+<div class="Container-form">
+    <div class="container container-padding">
+        <div class="row ">
+            <div class="col">
+                <div class="container ">
+                    @*<partial name="_SignInFormPartial" />*@
+                    <div id="sign-in">
+                        <div class="forms-text text-center">
+                            <h1>Sign in</h1>
+                            <p>Dont have an account? <a asp-controller="Authentication" asp-action="SignUp">Sign Up</a></p>
+                        </div>
+
+                        <form asp-action="SignIn" asp-route-returnUrl="@Model.ReturnUrl">
+                            <div class="row">
+                                <div class="col">
+                                    <input asp-for="Email" class="form-control input-border" placeholder="Enter your email">
+                                    <span asp-validation-for="Email" class="form-text text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <div class="col">
+                                    <input asp-for="Password" class="form-control input-border" placeholder="Enter your password">
+                                    <span asp-validation-for="Password" class="form-text text-danger"></span>
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col d-grid mb-3 btn-form text-center">
+                                    <button type="submit" class="btn btn-primary">Sign in</button>
+                                    <br />
+                                    <p class="text-danger">@Model.ErrorMessage </p>
+                                    <p>Forgot your password? <a asp-controller="Authentication" asp-action="Forgot">Get new password</a></p>
+
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+    await Html.RenderPartialAsync("_ValidationScriptsPartial");
+}
+}

@@ -1,0 +1,16 @@
+﻿
+@{
+    ViewData["Title"] = "Services";
+}
+
+<div class="bg-blue-gradient">
+    <div class="container">
+        <partial name="_Navbar"/>
+        <div id="navbar-header">
+            <h1>Services</h1>
+            <p><a asp-controller="Home" asp-action="Index">Home</a> | <a asp-controller="Home" asp-action="Services">Services</a></p>
+        </div>
+    </div>
+</div>
+<partial name="_ServicesPartial"/>
+

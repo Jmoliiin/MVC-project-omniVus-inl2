@@ -1,0 +1,68 @@
+﻿@using Omnivus_2.Models.Forms
+@model SignUpForm
+
+<div id="sign-up">
+    <div class="forms-text text-center">
+        <h1>Sign up</h1>
+        <p>Have you already an account? <a asp-controller="Authentication" asp-action="SignIn">Sign in.</a></p>
+    </div>
+    <form asp-action="SignUp" asp-route-returnUrl="@Model.ReturnUrl">
+        <div class="row">
+            <div class="col">
+                <input asp-for="FirstName" class="form-control input-border" placeholder="FirstName">
+                <span asp-validation-for="FirstName" class="form-text text-danger"></span>
+            </div>
+            <div class="col">
+                <input asp-for="LastName" class="form-control input-border" placeholder="Lastname">
+                <span asp-validation-for="LastName" class="form-text text-danger"></span>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col">
+                <input asp-for="StreetName" class="form-control  input-border" placeholder="Streetname">
+                <span asp-validation-for="StreetName" class="form-text text-danger"></span>
+            </div>
+            <div class="col">
+                <input asp-for="PostalCode" class="form-control input-border" placeholder="PostalCode">
+                <span asp-validation-for="PostalCode" class="form-text text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input asp-for="City" class="form-control input-border" placeholder="City">
+                <span asp-validation-for="City" class="form-text text-danger"></span>
+            </div>
+            <div class="col">
+                <input asp-for="Country" class="form-control input-border " placeholder="Country">
+                <span asp-validation-for="Country" class="form-text text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input asp-for="Email" class="form-control  input-border" placeholder="Email">
+                <span asp-validation-for="Email" class="form-text text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input asp-for="Password" class="form-control input-border" placeholder="Password">
+                <span asp-validation-for="Password" class="form-text text-danger"></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <input asp-for="VerifyPassword" class="form-control input-border" placeholder="Verify password">
+                <span asp-validation-for="VerifyPassword" class="form-text text-danger"></span>
+            </div>
+        </div>
+        <div class="row ">
+            <div class="col d-grid mb-3 btn-form text-center">
+                <button type="submit" class="btn btn-primary">Sign up</button>
+                <br/>
+                <p class="text-danger">@Model.ErrorMessage </p>
+                 <p>Have you already an account? <a asp-controller="Authentication" asp-action="SignIn">Sign in.</a></p>
+            </div>
+        </div>
+    </form>
+</div>

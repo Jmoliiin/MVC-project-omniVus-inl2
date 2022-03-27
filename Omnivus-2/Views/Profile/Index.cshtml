@@ -1,0 +1,60 @@
+﻿@model UserProfile
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="bg-blue-gradient">
+    <div class="container">
+        <partial name="_Navbar" />
+        
+    </div>
+    <div class="container mt-5">
+    @*<h3></h3>
+    <p>@Model.Email</p>*@
+</div>
+</div>
+@*@if (User.Identity.Name == Model.Email) //Kontrollerar så endast inloggad email användare kommer åt profilen.
+{*@
+    <div class="Container">
+        <div class="container container-padding">
+            <div id="profile" class="">
+                <div class="text-center pb-1">
+                        <p><a asp-controller="Home" asp-action="Index">Home</a> | <a asp-controller="Profile" asp-action="Index">Profile</a></p>
+                </div>
+                <div class="row">
+                    <div class="col-4 img-box">
+                        <img src="/images/illustration.svg" class="img-thumbnail mt-5" />
+                    </div>
+                    <div class="col pt-4 profile-box">
+                       <div class=" profile-info-text ">
+                        <h6>Name</h6>
+                        <p>@Model.FirstName @Model.LastName</p>
+                        <h6>Email</h6>
+                        <p>@Model.Email</p>
+                        <h6>Street name</h6>
+                        <p>@Model.StreetName</p>
+                        <h6>Postalcode</h6>
+                        <p>@Model.PostalCode</p>
+                        <h6>City</h6>
+                        <p>@Model.City</p>
+                        <h6>Country</h6>
+                        <p>@Model.Country</p>
+                        <p class="text-center"><a asp-controller="Profile" asp-action="Edit" asp-route-id="@User.FindFirst("UserId").Value">Update</a></p>
+                       </div> 
+                    </div>
+                </div>
+            </div>  
+        </div>
+    </div>
+@*}
+else
+{
+   
+}*@
+
+
+@*<div class="container mt-5">
+    <h3>@Model.FirstName @Model.LastName</h3>
+    <p>@Model.Email</p>
+</div>*@
+
